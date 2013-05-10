@@ -1,6 +1,33 @@
-<%= form_for(@team) do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<br>
-	<%= f.submit "Save Team" %>
-<% end %>
+
+
+<% if @team.persisted? %>
+	<form action="<%= teams_url %>" method="post">
+		<input type="hidden" name="_method" action="put">
+<% else %>
+	<form action="<%= teams_url %>" method="post">
+<% end %> 
+		<label>
+			<input type="text" name="team[name]">
+		</label>
+		<br>
+		<br>
+		<% User.all.each do |user| %>
+
+			<label>
+
+				<%= user.name %>
+
+				<input type="checkbox" 
+				 name="team[user_ids][]" 
+				 value="<%=user.id%>"
+				 <%= "checked" if @team.users.include?(user) %>
+				>
+
+			</label>
+			<br>
+		<% end %>
+		<br>
+
+		<input type="submit" name="commit" value="Save Team">
+
+	</form>

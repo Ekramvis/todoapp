@@ -1,0 +1,32 @@
+<% if @user.persisted? %>
+	<form action="<%= user_url(@user) %>" method="post">
+		<input type="hidden" name="_method" value="put">
+<% else %>
+	<form action="<%= users_url %>" method="post">
+<% end %>
+		
+		<label>
+			<input type="text" name="user[name]">
+		</label>
+		<br>
+
+		<% Team.all.each do |team| %>
+
+			<label>
+
+				<%= team.name %>
+
+				<input type="checkbox" 
+				 name="user[team_ids][]" 
+				 value="<%= team.id %>"
+				 <%= "checked" if @user.teams.include?(team) %>
+				>
+
+			</label>
+			<br>
+		<% end %>
+		<input type="hidden" name="user[team_ids][]" value="">
+
+		<input type="submit" name="commit" value="Save User">
+
+	</form>
