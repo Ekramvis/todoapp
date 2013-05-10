@@ -9,11 +9,11 @@
 	<br>
 
 	<%= f.label :completed %>
-	<%= f.check_box :completed, options = {}, checked_value = true, unchecked_value = false %>
+	<%= f.check_box :completed, options = {}, checked_value = 't', unchecked_value = 'f' %>
 	<br>
 
 	<%= f.label :project_id %>
 	<%= f.collection_select :project_id, Project.all, :id, :title %>
 
-	<%= f.submit "Add task" %>
+	<%= f.submit "Save task" %>
 <% end %>
