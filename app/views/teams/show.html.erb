@@ -1,0 +1,12 @@
+<h1><%= @team.name %></h1>
+
+<ul>
+	<% @team.projects.each do |project| %>
+		<li>
+			<%= link_to project.title, project_path(project) %>
+		</li>
+	<% end %>
+</ul>
+
+<%= link_to "Edit team", edit_team_path(@team) %>
+<%= link_to "Delete team", team_path(@team), method: :delete %>

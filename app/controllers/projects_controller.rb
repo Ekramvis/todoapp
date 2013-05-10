@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
 		@project = Project.new(params[:project])
 
 		if @project.save
-			flash.notice = "Project saved"
+			flash.notice = "Project Created"
 			redirect_to projects_url
 		else
 			render :new
@@ -27,6 +27,8 @@ class ProjectsController < ApplicationController
 
 	def edit
 		@project = Project.find(params[:id])
+
+		render :edit
 	end
 
 	def update

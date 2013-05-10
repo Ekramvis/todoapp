@@ -1,8 +1,7 @@
 class Project < ActiveRecord::Base
 	attr_accessible :title, :description, :team_id
 
-	validates :title, presence: true
-	# add back in validation for team_id once implemented
+	validates :title, :team_id, presence: true
 
 	belongs_to :team
 	has_many :items

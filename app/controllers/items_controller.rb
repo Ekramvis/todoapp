@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
 		@item = Item.new(params[:item])
 
 		if @item.save
-			flash.notice = "Task Saved"
+			flash.notice = "Task Created"
 			redirect_to project_url(@item.project)
 		else
 			render :new
@@ -27,6 +27,8 @@ class ItemsController < ApplicationController
 
 	def edit
 		@item = Item.find(params[:id])
+
+		render :edit
 	end
 
 	def update
