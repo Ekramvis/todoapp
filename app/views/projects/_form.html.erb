@@ -1,4 +1,6 @@
 <%= form_for(@project) do |f| %>
+	<%= f.hidden_field :team_id %>
+	
 	<%= f.label :team_id %>
 	<%= f.collection_select :team_id, Team.all, :id, :name %>
 	<br>
