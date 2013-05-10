@@ -8,7 +8,11 @@
 <ul>
 	<% @project.items.each do |item| %>
 		<li>
-			<%= link_to item.title, item_path(item)%>
+			<%= link_to item.title, item_path(item)%> 
+			<%= item.completed ? "Completed" : "" %>
 		</li>
 	<% end %>
 </ul>
+
+<br>
+<%= link_to "Edit Project", edit_project_path(@project) %>

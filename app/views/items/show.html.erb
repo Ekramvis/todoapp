@@ -5,6 +5,7 @@
 Status: <%= @item.completed ? "Completed" : "Incomplete" %>
 <br>
 <%= link_to "Edit task", edit_item_path(@item) %>
+<%= link_to "Delete task", item_path(@item), method: :delete %>
 <br>
 <br>
 Project: <%= link_to @item.project.title, project_path(@item.project) %>

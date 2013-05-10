@@ -42,6 +42,8 @@ class ItemsController < ApplicationController
 	end
 
 	def destroy
-		Item.find(params[:id]).destroy
+		@item = Item.find(params[:id]).destroy
+
+		redirect_to project_url(@item.project)
 	end
 end
