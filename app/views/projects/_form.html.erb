@@ -1,4 +1,7 @@
 <%= form_for(@project) do |f| %>
+	<%= f.label :team_id %>
+	<%= f.collection_select :team_id, Team.all, :id, :name %>
+	<br>
 	<%= f.label :title %>
 	<%= f.text_field :title %> 
 	<br>
