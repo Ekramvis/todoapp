@@ -1,0 +1,19 @@
+<%= form_for(@item) do |f| %> 
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<br>
+
+	<%= f.label :description %>
+	<br>
+	<%= f.text_area :description %>
+	<br>
+
+	<%= f.label :completed %>
+	<%= f.check_box :completed, options = {}, checked_value = true, unchecked_value = false %>
+	<br>
+
+	<%= f.label :project_id %>
+	<%= f.collection_select :project_id, Project.all, :id, :title %>
+
+	<%= f.submit "Add task" %>
+<% end %>

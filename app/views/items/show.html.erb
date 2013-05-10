@@ -1,0 +1,11 @@
+<h1><%= @item.title %></h1>
+
+<%= @item.description %>
+<br>
+Status: <%= @item.completed ? "Completed" : "Incomplete" %>
+<br>
+<%= link_to "Edit task", edit_item_path(@item) %>
+<br>
+<br>
+Project: <%= link_to @item.project.title, project_path(@item.project) %>
+
