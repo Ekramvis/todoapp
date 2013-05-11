@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
 	def index
 		if params.include?(:project_id)
-			@items = Item.where(:project_id => params[:project_id])
+			@items = Item.where(:project_id => params[:project_id]) #oh, is that how you do that :), also, I have to start writing somthing
 		else
 			@items = Item.all 
 		end
